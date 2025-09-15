@@ -1,17 +1,12 @@
 import React from 'react';
-
-interface ButtonProps {
-    title: string;
-    size?: 'small' | 'medium' | 'large';
-    shape?: 'rounded-sm' | 'rounded-md' | 'rounded-full';
-    onClick?: () => void;
-}
+import { ButtonProps } from '@/interfaces';
 
 const Button: React.FC<ButtonProps> = ({
     title,
     size = 'medium',
     shape = 'rounded-md',
-    onClick
+    onClick,
+    styles = ''
 }) => {
     const sizeClasses = {
         small: 'px-3 py-1 text-sm',
@@ -29,6 +24,7 @@ const Button: React.FC<ButtonProps> = ({
     transition-colors
     duration-200
     border border-transparent
+    ${styles}
   `.trim().replace(/\s+/g, ' ');
 
     return (
